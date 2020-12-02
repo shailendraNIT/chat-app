@@ -63,7 +63,7 @@ socket.on('message',(message)=>{
 
 socket.on('locationMessage',(locationMessage)=>{
     const html=Mustache.render(locationMessageTemplate,{
-        username:message.username,
+        username:locationMessage.username,
         url:locationMessage.url,
         createdAt:moment(locationMessage.createdAt).format('h:mm a')
     })

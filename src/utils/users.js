@@ -6,7 +6,7 @@ const addUser= ({id,username,room})=>{
 
     if(!username || !room){
         return {
-            error : 'username and room is required!'
+            error : 'username and room are required!'
         }
     }
 
@@ -15,7 +15,9 @@ const addUser= ({id,username,room})=>{
     })
 
     if(existing){
-        return {error : 'Username already exist!'}
+        return {
+            error : 'Username already exist!'
+        }
     }
     const user={id,username,room}
     users.push(user)
@@ -39,14 +41,14 @@ const removeUser=(id)=>{
 
 const getUser=(id)=>{
     
-    return users.find(user=> id===user.id )
+    return users.find((user)=> user.id===id )
 }
 
 
 const getUsersInRoom=(room)=>{
     room=room.trim().toLowerCase()
     
-    return users.filter(user=> user.room===room )
+    return users.filter((user)=> user.room===room )
 
 }
 
